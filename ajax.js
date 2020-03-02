@@ -127,6 +127,8 @@ function inicializar(pagina, categoria) {
                 var img = document.createElement("img");
                 center.appendChild(img);
                 img.setAttribute("src", item.previewURL);
+                img.width = 240;
+                img.height = 150;
 
             }
 
