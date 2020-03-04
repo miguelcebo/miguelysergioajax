@@ -106,9 +106,9 @@ function request(url) {
 
 function inicializar(pagina, categoria) {
 
-    
+    var filtro = document.getElementById("select-categorias").value;
 
-    let api = 'https://pixabay.com/api/?key=15302803-762f6e93f6b7e642009d5c6eb&q=yellow+flowers&image_type=photo&q='+categoria+'&page='+pagina;
+    let api = 'https://pixabay.com/api/?key=15302803-762f6e93f6b7e642009d5c6eb&category='+filtro+'&q='+categoria+'&page='+pagina;
 
     const apiPromise = request(api)
 
