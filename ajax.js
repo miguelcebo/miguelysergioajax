@@ -1,4 +1,7 @@
 //console.log("js on");
+const urlCategorias = "https://my-json-server.typicode.com/miguelcebo/repositorio/categorias";
+    const rategoria = document.getElementById("select-categorias");
+selectorDeCosas();
 var paginaActual = 1;
 const xhttp = new XMLHttpRequest();
 var botonBusqueda = document.querySelector("#botonBusqueda");
@@ -120,7 +123,7 @@ function inicializar(pagina, categoria) {
             
             var center = document.querySelector('#center');
             center.innerHTML = "";
-            console.log(api)
+            //console.log(api)
 
             for (let item of api.hits) {
 
@@ -136,7 +139,35 @@ function inicializar(pagina, categoria) {
 
         .catch(function handleErrors(error) {
 
-            console.log("Error in the Movies Carousel Promise")
+            //console.log("Error in the Movies Carousel Promise")
 
         })
+}
+
+function selectorDeCosas() {
+    
+        request(urlCategorias).then(function noseke(json){
+
+            let api = JSON.parse(json)
+            
+            //console.log(api)
+
+            api.forEach(function(categoria) {
+                option = document.createElement("option");
+                option.setAttribute("value", categoria.id);
+                option.innerHTML = categoria.name;
+                rategoria.appendChild(option);
+              });
+
+        })
+
+        .catch(function handleErrors(error) {
+
+            //console.log("Error in the Movies Carousel Promise")
+
+        })
+    
+        
+        
+      
 }
